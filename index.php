@@ -5,8 +5,8 @@ error_reporting(E_ALL | E_STRICT);
 date_default_timezone_set('Asia/ShangHai');
 
 define("YIN_PATH",dirname(__FILE__));
-define("WEB_URL","http://gzy.com");
-
+define("WEB_URL","http://".$_SERVER['SERVER_NAME']);//域名
+//echo $_SERVER['SERVER_NAME'];
 // Config
 
 //echo YIN_PATH. '/data/gzycmf/config/conf.php';exit;

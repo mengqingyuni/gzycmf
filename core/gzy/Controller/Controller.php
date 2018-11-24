@@ -8,7 +8,7 @@
 
 namespace core\gzy\controller;
 
-class BaseController {
+class Controller {
 
 	/**
 	 * 控制器 重定向

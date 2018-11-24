@@ -7,9 +7,10 @@
  * Time: 12:11 上午
  */
 namespace controller;
-use core\gzy\controller\BaseController;
+use core\gzy\controller\Controller;
+use models\Index;
 
-class IndexController extends BaseController {
+class IndexController extends Controller {
 
 	public function run(){
 		echo "我是 Index 制器的 run 方法";
@@ -35,7 +36,15 @@ class IndexController extends BaseController {
 	}
 
 	public function demo(){
-		echo "我是 Index 制器的 demo 方法";
+		//phpinfo();
+		//echo "我是 Index 制器的 demo 方法";
+		$m = new Index();
+
+		var_dump($m->find());
+
+
+//默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
+
 	}
 }
 

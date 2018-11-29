@@ -3,7 +3,7 @@
 // 数据库配置
 
 return [
-	'dsn'      => 'mysql:host=127.0.0.1;dbname=yii2basic',
+	'dsn'      => 'mysql:host=127.0.0.1;dbname=yii2advanced',
 	'username' => 'root',
 	'password' => '',
 	'charset'  => 'utf8',

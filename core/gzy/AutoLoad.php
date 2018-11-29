@@ -13,6 +13,7 @@ class AutoLoad
 {
 	public static function loadprint($class){
 		$file = YIN_PATH."/".$class.".php";
+		//echo $file;
 		// "Linux需要转义斜杠";
 		$file = str_replace('\\','/',$file);
 		//echo $file."<br>";    //这句话是为了调试使用

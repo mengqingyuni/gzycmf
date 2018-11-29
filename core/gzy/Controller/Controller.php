@@ -7,8 +7,15 @@
  */
 
 namespace core\gzy\controller;
-
+use core\gzy\base\Templates;
+use Noodlehaus\Config;
 class Controller {
+
+	public function __construct () {
+		$this->template = new Templates();
+		$this->conf = new Config(YIN_PATH. '/config/conf.php');
+
+	}
 
 	/**
 	 * 控制器 重定向
@@ -72,6 +79,37 @@ class Controller {
 		$value = str_replace(array('"',"'","\t",'  '), array('&quot;','&#39;','    ','&nbsp;&nbsp;'), $value);
 		return $value;
 	}
+
+	/**
+	 * 模板传值
+	 * @param $key
+	 * @param $value
+	 */
+
+
+	public function assign ($key,$value) {
+
+
+        $this->template->assign($key,$value);
+
+	}
+
+
+
+
+
+	/**
+	 * @param $adrr  地址
+	 */
+	public function render ($adrr) {
+
+		 $this->template->show($adrr);
+
+
+
+	}
+
+
 
 
 

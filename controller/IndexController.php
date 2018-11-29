@@ -9,7 +9,7 @@
 namespace controller;
 use core\gzy\controller\Controller;
 use models\Index;
-use core\gzy\base\Template;
+
 
 class IndexController extends Controller {
 
@@ -38,15 +38,17 @@ class IndexController extends Controller {
 
 	public function demo(){
 		//phpinfo();
-		//echo "我是 Index 制器的 demo 方法";
-		$m = new Index();
+		//echo "我是 Index 制器的 demo 方法"; exit;
+		//$m = new Index();
 
 		//var_dump($m->find());
-		$tpl = new Template();
-		$tpl->show('Index/index');
+
+		$this->assign('data',["s"=>2,"3"=>"qq"]);
+		//echo readfile("file:///Users/gongzgiyang/www/gzyCFM/runtime/HTML/dbebd60b1b1ff497802718a930bb8d52.php");
+		$this->render('Index/demo');
 
 
-//默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT => true) 变成这样：
+
 
 	}
 }

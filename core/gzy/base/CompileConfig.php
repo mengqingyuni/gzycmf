@@ -23,6 +23,10 @@ class CompileConfig
 
 	}
 
+	/**
+	 * @param $source     数据
+	 * @param $destFile   文件
+	 */
 	public function compile ($source,$destFile) {
 		file_put_contents($destFile,file_get_contents($source));
 

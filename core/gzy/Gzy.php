@@ -31,6 +31,7 @@ class Gzy
 		// 这里我们直接获取
 		$this->getRequest();
 		$class = "\\controller\\".ucfirst($this->controller)."Controller";
+		//echo $class;exit;
 		$obj = new $class();
 		$action = $this->action;
 		$obj->$action();

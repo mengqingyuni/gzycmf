@@ -58,9 +58,9 @@ class Controller {
 	 * @return string
 	 */
 	public function getParams($value,$type) {
-		if($type == 'G') {
+		if($type == 'GET') {
 			return $this->filter_str($_GET[$value]);
-		} elseif($type == 'P') {
+		} elseif($type == 'POST') {
 			return $this->filter_str($_POST[$value]);
 		}
 	}

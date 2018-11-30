@@ -12,6 +12,7 @@ use core\lib\Route;
 use Noodlehaus\Config;
 class Gzy
 {
+	private $modules;       //默认模块
 	private $controller;    //默认控制器
 	private $action;        //默认方法
 	private $conf;          //配置文件
@@ -30,8 +31,9 @@ class Gzy
 		$route->dispatcher();
 		// 这里我们直接获取
 		$this->getRequest();
-		$class = "\\controller\\".ucfirst($this->controller)."Controller";
-		//echo $class;exit;
+		$class = "\\$this->modules\\controller\\".ucfirst($this->controller)."Controller";
+		//echo YIN_PATH. '/config/conf.php';
+        //echo $class;
 		$obj = new $class();
 		$action = $this->action;
 		$obj->$action();
@@ -44,6 +46,7 @@ class Gzy
 	 */
 	public function getRequest(){
 
+		$this->modules = isset($_GET['g']) ? $_GET['g'] : $this->conf->get('modules');
 		$this->controller = isset($_GET['c']) ? $_GET['c'] : $this->conf->get('controller');
 		$this->action = isset($_GET['a']) ? $_GET['a'] : $this->conf->get('action');
 	}

@@ -1,5 +1,6 @@
 <?php
 /**
+ * 控制器类
  * Created by BaseController.php.
  * User: gongzhiyang
  * Date: 18/11/24
@@ -71,14 +72,16 @@ class Controller {
 	 * @param  string $value 需要过滤的值
 	 * @return string
 	 */
-	public function filter_str($value) {
-		$value = str_replace(array("\0","%00","\r"), '', $value);
-		$value = preg_replace(array('/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]/','/&(?!(#[0-9]+|[a-z]+);)/is'), array('', '&amp;'), $value);
-		$value = str_replace(array("%3C",'<'), '&lt;', $value);
-		$value = str_replace(array("%3E",'>'), '&gt;', $value);
-		$value = str_replace(array('"',"'","\t",'  '), array('&quot;','&#39;','    ','&nbsp;&nbsp;'), $value);
-		return $value;
-	}
+//	public function filter_str($value) {
+//		$value = str_replace(array("\0","%00","\r"), '', $value);
+//		$value = preg_replace(array('/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F]/','/&(?!(#[0-9]+|[a-z]+);)/is'), array('', '&amp;'), $value);
+//		$value = str_replace(array("%3C",'<'), '&lt;', $value);
+//		$value = str_replace(array("%3E",'>'), '&gt;', $value);
+//		$value = str_replace(array('"',"'","\t",'  '), array('&quot;','&#39;','    ','&nbsp;&nbsp;'), $value);
+//		return $value;
+//	}
+
+
 
 	/**
 	 * 模板传值

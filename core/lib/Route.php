@@ -11,7 +11,11 @@ namespace core\lib;
 use Noodlehaus\Config;
 class Route
 {
+	private $modules;       //默认模块
+	private $controller;    //默认控制器
+	private $action;        //默认方法
 	private $conf;          //配置文件
+
 
 	public function __construct() {
 		$this->conf = new Config(YIN_PATH. '/config/conf.php');
@@ -21,25 +25,45 @@ class Route
 	 * 路由的分发
 	 */
 	public function dispatcher() {
-		switch ($this->conf->get('route')) {
-			case 'path' :
+		//echo $_SERVER['REQUEST_URI'];exit;
+		switch ($this->conf->get('url_route')) {
+			//斜杠模式
+			case 'PATH_INFO' :
+
 				$request = $this->getRequest();
-				$this->parsePathUri($request);
+				//var_dump($this->parsePathUri($request));
+				//$this->parsePathUri($request);
 				break;
 
 			default :
-				return false;
+				$request = $this->getRequest();
 				break;
 		}
-		return true;
+		return $request;
 	}
 
+//	/**
+//	 * @return mixed
+//	 */
+//	public function getRequest() {
+//
+//		return true;
+//	}
 	/**
-	 * @return mixed
+	 * 获取controller和action
 	 */
-	public function getRequest() {
-		return true;
+	private function getRequest(){
+
+		$this->modules    = isset($_GET['g']) ? $_GET['g'] : $this->conf->get('modules');
+		$this->controller = isset($_GET['c']) ? $_GET['c'] : $this->conf->get('controller');
+		$this->action     = isset($_GET['a']) ? $_GET['a'] : $this->conf->get('action');
+		return [
+			"modules"    => $this->modules,
+			"controller" => $this->controller,
+			"action"     => $this->action,
+		];
 	}
+
 
 	/**
 	 * @param $request

@@ -1,5 +1,6 @@
 <?php
 /**
+ * api 控制器类
  * Created by BaseController.php.
  * User: gongzhiyang
  * Date: 18/11/24

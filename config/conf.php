@@ -1,10 +1,11 @@
 <?php
 return [
-	"debug"=> true,  // 是否开启调试模式
-	'modules'=> 'home',
+	"debug"		 => true,  // 是否开启调试模式
+	"url_route"  => 'PATH_INFO', //PATH_INFO 普通模式
+	'modules'	 => 'home',
 	'controller' => 'Index',    // 默认控制器
-    	'action' => 'run',          // 默认方法
-	"template" =>[
+    'action' 	 => 'run',          // 默认方法
+	"template"   =>[
 		'template'      => 'php',//模板默认原生php
 		'suffix'        => '.php', //设置模板文件的缀 如果是smarty就是 .html
 		'templateaDir'  => 'views/',//设置模板所在的文件夹

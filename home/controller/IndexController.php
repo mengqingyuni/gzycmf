@@ -11,26 +11,34 @@ use core\gzy\controller\Controller;
 use models\Index;
 
 
+
 class IndexController extends Controller {
+
 
 	public function run(){
 		echo "欢迎大家提意见。此框架只用于学习";exit;
+		//print_r($_SERVER);
+        print_r(get("jid"));
+		print_r(post("name"));
+		//echo $_GET["jid"];
+
 
 		// 接收参数
-		$username = $this->getParams('name','G');
-
-		$password = $this->getParams('pwd','P');
-		$email = $this->getParams('email','G');
-        $phone = $this->getParams('phone','G');
-
+		//$username = $this->getParams('name','GET');
+		//echo $_GET["name"];exit;
+//
+//		$password = $this->getParams('pwd','POST');
+//		$email = $this->getParams('email','GET');
+//        $phone = $this->getParams('phone','GET');
+       // echo $phone;
 		// 验证邮箱
-		if (!$this->is_email($email)){
-			echo "邮箱格式不正确";
-		}
-		//验证手机号
-		if (!$this->is_phone($phone)){
-			echo "手机号格式不正确";
-		}
+//		if (!$this->is_email($email)){
+//			echo "邮箱格式不正确";
+//		}
+//		//验证手机号
+//		if (!$this->is_phone($phone)){
+//			echo "手机号格式不正确";
+//		}
 
 		// 重定向
 		//$this->redirect('/gzyCFM/index.php?c=Index&a=demo');

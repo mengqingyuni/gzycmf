@@ -124,6 +124,7 @@ class Templates implements Template
 		//编译后文件
 		$compileFile = YIN_PATH.'/'.$this->arrayConfig["template"]['compiledir'].'/'.md5($file).$this->arrayConfig["template"]['suffix_cache'];
 		if (!is_file($compileFile)) {
+			echo $this->arrayConfig["template"]['compiledir'];
 			mkdir($this->arrayConfig["template"]['compiledir']);//生成缓存文件夹
 			extract($this->value);
 			$this->compileTool->compile($this->path(),$compileFile);//把内容写到文件中

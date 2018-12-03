@@ -21,7 +21,7 @@ class AutoLoad
 		$path = pathinfo($file);
 		//print_r($path) ;
 		$file = $path["dirname"].'/'.$path["basename"];
-	//	echo $file ."<br>";    //这句话是为了调试使用
+		//echo $file ."<br>";    //这句话是为了调试使用
 
 		if (is_file($file)) {
 

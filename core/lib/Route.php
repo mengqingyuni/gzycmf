@@ -30,7 +30,7 @@ class Route
 			//斜杠模式
 			case 'PATH_INFO' :
 
-				$request = $this->getRequest();
+				$request = $this->getRequest("PATH_INFO");
 				//var_dump($this->parsePathUri($request));
 				//$this->parsePathUri($request);
 				break;
@@ -52,11 +52,26 @@ class Route
 	/**
 	 * 获取controller和action
 	 */
-	private function getRequest(){
+	private function getRequest($pathInfo=""){
 
-		$this->modules    = isset($_GET['g']) ? $_GET['g'] : $this->conf->get('modules');
-		$this->controller = isset($_GET['c']) ? $_GET['c'] : $this->conf->get('controller');
-		$this->action     = isset($_GET['a']) ? $_GET['a'] : $this->conf->get('action');
+		if ($pathInfo == "PATH_INFO") {
+
+			$pathInfo = $_SERVER["REQUEST_URI"];
+
+			$parm = explode('/',$pathInfo);
+			//print_r($parm) ;
+			$this->modules    = isset($parm[2]) ? $parm[2] : $this->conf->get('modules');
+			$this->controller = isset($parm[3]) ? $parm[3] : $this->conf->get('controller');
+			$this->action     = isset($parm[4]) ? $parm[4] : $this->conf->get('action');
+
+
+		} else {
+			//var_dump($_SERVER);
+			$this->modules    = isset($_GET['g']) ? $_GET['g'] : $this->conf->get('modules');
+			$this->controller = isset($_GET['c']) ? $_GET['c'] : $this->conf->get('controller');
+			$this->action     = isset($_GET['a']) ? $_GET['a'] : $this->conf->get('action');
+		}
+
 		return [
 			"modules"    => $this->modules,
 			"controller" => $this->controller,

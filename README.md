@@ -18,7 +18,7 @@ return [
 	]
 ];
 
-http://gzy.com/index.php/model/home/controller/Index/action/run/jid/ddd
+http://gzy.com/index.php/home/Index/run
 
 http://test:8888/index.php?c=Index&a=run&name=dd&jid=233
 

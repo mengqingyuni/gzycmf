@@ -10,20 +10,21 @@
  * @param $value 名称
  */
 function get($value=""){
-	echo "===========";
+	//echo "===========";
      // echo $_GET[ $value ];
 
 	try {
 		if (!empty($value)) {
+			//echo $value;
 
 			$get = $_SERVER["REQUEST_METHOD"];
 
 			if (C("url_route")=="PATH_INFO") {
 				//echo C("url_route");
-					$pathInfo = $_SERVER["REQUEST_URI"];
+					$pathInfo = trim($_SERVER["REQUEST_URI"],'/');
 
 					$parm = explode('/',$pathInfo,5)["4"];
-                    //var_dump(explode('/',$pathInfo,5)["4"]);
+                    //var_dump($pathInfo);
 				    if (isset($parm)) {
 						$list = explode('/',$parm);
 						foreach ($list as $key=>$val) {
@@ -36,7 +37,6 @@ function get($value=""){
 
 						}
 					}
-
 
 
 			} else {

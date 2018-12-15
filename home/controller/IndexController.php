@@ -16,15 +16,13 @@ class IndexController extends Controller {
 
 
 	public function run(){
-		echo "欢迎使用";exit;
-		$this->render('Home/Index/index');
+
+		//$this->render('Home/Index/index');
 	}
 
 	public function demo()
 	{
-		//echo "============";
-
-		//echo get("ss");
+		
 
 	}
 }

@@ -81,7 +81,7 @@ class Templates implements Template
 
 		$this->value[$key] = $value;
 
-		//echo $this->value[$key];
+		//var_dump($key) ;
 
 	}
 
@@ -131,7 +131,9 @@ class Templates implements Template
 			include_once($compileFile);//读取
 			//echo $compileFile;
 		} else {
-			extract($this->value);
+
+			extract($this->value); //extract() 函数从数组中将变量导入到当前的符号表。
+
 			//echo YIN_PATH.'/'.$this->path();
 			include_once(YIN_PATH.'/'.$this->path());
 			 //readfile(YIN_PATH.'/'.$this->path());

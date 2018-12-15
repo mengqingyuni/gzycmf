@@ -16,13 +16,20 @@ class IndexController extends Controller {
 
 
 	public function run(){
-
-		//$this->render('Home/Index/index');
+		echo "Hello World run";
+		//var_dump(get("name"));
+		// 重定向
+		//$this->redirect('/Home/Index/demo');
+		$find = new Index();
+		var_dump($find->find());
+		$this->assign("data",["lkf"=>'dd',"ee"=>'rr']);
+		$this->render('Home/Index/index');
 	}
 
 	public function demo()
 	{
-		
+		echo "Hello World demo";
+
 
 	}
 }

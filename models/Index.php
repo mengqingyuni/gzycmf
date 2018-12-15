@@ -23,7 +23,7 @@ class Index extends model {
 	public function find() {
 		$dbh = new Model();
 		//print_r($dbh);
-		$select = 'SELECT * from adminuser LIMIT 1';
+		$select = 'SELECT * from oa_admin_menu ';
 		$stmt = $dbh->query($select); //返回一个PDOStatement对象
 
 		$rows = $stmt->fetchAll(); //获取所有

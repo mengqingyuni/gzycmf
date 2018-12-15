@@ -18,7 +18,7 @@ class Route
 
 
 	public function __construct() {
-		$this->conf = new Config(YIN_PATH. '/config/conf.php');
+		$this->conf   = new Config(YIN_PATH. '/config/conf.php');
 	}
 
 	/**
@@ -42,28 +42,30 @@ class Route
 		return $request;
 	}
 
-//	/**
-//	 * @return mixed
-//	 */
-//	public function getRequest() {
-//
-//		return true;
-//	}
+
 	/**
 	 * 获取controller和action
 	 */
 	private function getRequest($pathInfo=""){
 
 		if ($pathInfo == "PATH_INFO") {
+            //var_dump($_SERVER);
 
-			$pathInfo = $_SERVER["REQUEST_URI"];
+			$pathInfo = trim($_SERVER["REQUEST_URI"],"/");
 
 			$parm = explode('/',$pathInfo);
-			//print_r($parm) ;
-			$this->modules    = isset($parm[2]) ? $parm[2] : $this->conf->get('modules');
-			$this->controller = isset($parm[3]) ? $parm[3] : $this->conf->get('controller');
-			$this->action     = isset($parm[4]) ? $parm[4] : $this->conf->get('action');
-
+			//print_r($parm);
+			if (trim($_SERVER["DOCUMENT_URI"],"/")=="index.php") {
+				$this->modules    = isset($parm[1]) ? $parm[1] : $this->conf->get('modules');
+				$this->controller = isset($parm[2]) ? $parm[2] : $this->conf->get('controller');
+				$this->action     = isset($parm[3]) ? $parm[3] : $this->conf->get('action');
+			} else {
+				$this->modules    = isset($parm[0]) ? $parm[0] : $this->conf->get('modules');
+				$this->controller = isset($parm[1]) ? $parm[1] : $this->conf->get('controller');
+				$this->action     = isset($parm[2]) ? $parm[2] : $this->conf->get('action');
+			}
+			//print_r($parm) ;exit;
+			//echo  $this->is_url($pathInfo);
 
 		} else {
 			//var_dump($_SERVER);
@@ -78,6 +80,7 @@ class Route
 			"action"     => $this->action,
 		];
 	}
+
 
 
 	/**

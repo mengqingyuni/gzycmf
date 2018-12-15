@@ -40,6 +40,7 @@ class Controller {
 	 *  @return bool
 	 */
 	public function is_email($value) {
+
 		return preg_match('/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/', trim($value));
 	}
 

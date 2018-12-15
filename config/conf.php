@@ -1,4 +1,7 @@
 <?php
+//$params = array_merge(
+//	require(__DIR__ . '../api/config/conf.php')
+//);
 return [
 	"debug"		 => true,  // 是否开启调试模式
 	"url_route"  => 'PATH_INFO', //PATH_INFO 普通模式
@@ -11,5 +14,6 @@ return [
 		'templateaDir'  => 'views/',//设置模板所在的文件夹
 		'compiledir'    => 'runtime/HTML',//设置编译后存放放的目录
 		'suffix_cache'  =>  '.php',//设置编译文件后缀
-	]
+	],
+	//$params,
 ];

@@ -21,6 +21,7 @@ class Gzy
 	public function __construct() {
 		$this->conf = new Config(YIN_PATH. '/config/conf.php');
 
+
 	}
 
 	public function run(){

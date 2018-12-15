@@ -10,14 +10,13 @@
  * @param $value 名称
  */
 function get($value=""){
-	//echo "===========";
-     // echo $_GET[ $value ];
+
 
 	try {
 		if (!empty($value)) {
 			//echo $value;
 
-			$get = $_SERVER["REQUEST_METHOD"];
+			//$get = $_SERVER["REQUEST_METHOD"];
 
 			if (C("url_route")=="PATH_INFO") {
 				//echo C("url_route");

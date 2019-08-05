@@ -22,6 +22,7 @@ require_once YIN_PATH . '/core/init.php'; //引入框架核心文件
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
+
 //echo 9/0;
 
 

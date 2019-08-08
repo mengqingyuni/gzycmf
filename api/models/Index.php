@@ -12,11 +12,6 @@ class Index extends model {
 
 	public function __construct() {
 
-
-
-
-
-
 //		$this->conf = new Config(YIN_PATH. '/config/db.php');
 //		var_dump($this->conf["dsn"]);
 		parent::__construct();

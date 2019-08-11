@@ -34,22 +34,6 @@ class IndexController extends ApiController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	}
 
 

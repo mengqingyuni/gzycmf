@@ -12,7 +12,7 @@ use api\models\Index;
 use Noodlehaus\Config;
 
 
-class IndexController extends ApiController {
+class HomeController extends ApiController {
 
 	public function __construct() {
 

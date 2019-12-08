@@ -1,19 +1,18 @@
 <?php
+
 return [
-	'outputType'    => ['class'=>'core\lib\json'],
+    'outputType'    => ['class'=>'core\lib\json'],
 
+    'urlManager'=> [
 
-	"urlManager"=>[
+        'rules' => [
+                        //'class'      => 'core\lib\UrlRule',
+                        //'modules'    =>  'api',
+                        'controller' => 'Index',
+                        'function'   => 'run',
+                        //'except'     => ['index','delete','create','update','view'],
+                    ],
 
-		'rules' => [
-						//'class'      => 'core\lib\UrlRule',
-						//'modules'    =>  'api',
-						'controller' => 'Index',
-						'function'   => 'run',
-						//'except'     => ['index','delete','create','update','view'],
-					]
-
-
-	]
+    ],
 
 ];

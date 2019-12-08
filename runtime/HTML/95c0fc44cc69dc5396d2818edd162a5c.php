@@ -1,6 +1,6 @@
 <?php
 
- echo "ww";
+ echo 'ww';
 ?>
 
 <h1>User Profile</h1>
